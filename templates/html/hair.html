@@ -1,0 +1,119 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BeautySalon</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/login/">Login ou Entrar</a></li>
+                <li><a href="/about">Sobre</a></li>
+                <li><a href="/services">Serviços</a></li>
+                <li><a href="/testimonials">Depoimentos</a></li>
+                <li><a href="/contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        {% for login in logins %}
+            {% if forloop.first %}
+                <div class="hero-text">
+                    <h2>{{ login.title }}</h2>
+                    <p>{{ login.description }}</p>
+                    <button>Agendar um horário</button>
+                </div>
+                <div class="hero-image">
+                    <img src="media/{{ login.image }}" alt="image">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+    <section class="about" id="about">
+        {% for login in logins %}
+            {% if forloop.counter == 2 %}
+                <div class="about-image">
+                    <img src="media/{{ login.image }}" alt="Sobre nós">
+                </div>
+                <div class="about-text">
+                    <h2>{{ login.title }}</h2>
+                    <p>{{ login.description }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+    <section class="services" id="services">
+        <h2>Serviços</h2>
+        <p>Com mais de 10 anos no mercado, o BeautySalon já conquistou clientes de inúmeros países com seus tratamentos exclusivos e totalmente naturais.</p>
+        <div class="services-cards">
+            {% for login in logins %}
+                {% if forloop.counter >= 3 and forloop.counter <= 5 %}
+                    <div class="card">
+                        <img src="media/{{ login.image }}" alt="{{ login.title }}">
+                        <h3>{{ login.title }}</h3>
+                        <p>{{ login.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2>Depoimentos de quem já passou por aqui</h2>
+        <div class="testimonials-cards">
+            {% for login in logins %}
+                {% if forloop.counter >= 6 %}
+                    <div class="testimonial">
+                        <img src="media/{{ login.image }}" alt="">
+                        <p>{{ login.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-text">
+                <h1>Entre em contato com a gente!</h1>
+                <p>Estamos aqui para responder suas dúvidas, ouvir suas críticas e sugestões.</p>
+                <button class="image-button">
+                    <img src="{% static '/img/image_copy_9.png' %}" alt="">
+                    <span>Entrar em contato</span>
+                </button>
+            </div>
+            <div class="contact-info">
+                <p><img src="{% static '/img/image_copy_10.png' %}" alt=""> 11 99845-6754</p>
+                <p><img src="{% static '/img/image_copy_11.png' %}" alt=""> R. Amauri Souza, 346</p>
+                <p><img src="{% static '/img/image_copy_12.png' %}" alt=""> contato@beautysalon.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                <h1>BeautySalon.</h1>
+                <p>&copy; 2021 BeautySalon. Todos os direitos reservados.</p>
+            </div>
+            <div class="footer-images">
+                <img src="{% static '/img/image_copy_13.png' %}" alt="cards">
+                <img src="{% static '/img/image_copy_14.png' %}" alt="cards">
+                <img src="{% static '/img/image_copy_15.png' %}" alt="cards">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+{% endblock %}

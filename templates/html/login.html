@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <style>
+    /* Основные стили для страницы */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://source.unsplash.com/random/1600x900');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Контейнер для формы */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    input {
+      width: 90%; /* Уменьшенная ширина полей */
+      padding: 10px;
+      margin: 5px auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+      outline: none;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+      width: 90%; 
+      gap: 10px;
+    }
+    
+    .button {
+      flex: 1;
+      padding: 12px;
+      background-color: #86c496;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+      box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+    }
+
+    .back-button {
+      background-color: #f1f1f1;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #666666;
+      margin-top: 15px;
+      width: 90%;
+      transition: 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #ddd;
+    }
+
+    @media (max-width: 400px) {
+      .form-container {
+        width: 90%; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Регистрация</h2>
+        <input type="text" placeholder="User name">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Сonfirm password">
+
+    <div class="button-row">
+      <button class="button">Login</button>
+         <a href="sign_in.html">
+      <button class="button">Sign Up</button>
+    </div>
+
+    <button class="back-button" onclick="history.back()">Назад</button>
+  </div>
+</body>
+</html>
