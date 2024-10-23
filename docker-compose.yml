@@ -10,7 +10,7 @@ services:
       - ./media:/home/app/web/media
       - ./static:/home/app/web/static
     command: >
-      gunicorn core.wsgi:application --bind 0.0.0.0:666 --access-logfile -
+      gunicorn hair.wsgi:application --bind 0.0.0.0:666 --access-logfile -
     ports:
       - "666:666"
 
